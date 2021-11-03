@@ -57,7 +57,7 @@ phina.define('MainScene', {
 
     // ボタンを押した時の処理
     shuffleButton.onpush = function () {
-      (100).times(function () {
+      (300).times(function () {
         self.shufflePieces();
       });
       // 残りステップリセット
@@ -152,21 +152,24 @@ phina.define('MainScene', {
   // ピースをシャッフル
   shufflePieces: function () {
     const self = this;
+    // 隣接ピース格納用
     const pieces = [];
+    // 空白ピースを得る
     const blank = this.getBlankPiece();
+    // 上下左右隣りのピースがあれば配列に追加
     [1, 0, -1].each(function (i) {
       [1, 0, -1].each(function (j) {
-        if (i !== j) {
+        if (Math.abs(i) != Math.abs(j)) {
           const x = blank.x + i * gridSize;
           const y = blank.y + j * gridSize;
           const target = self.getPieceByXY(x, y);
-          if (target) {
+          if (target !== null) {
             pieces.push(target);
           }
         }
       });
     });
-    // 隣接するピースからランダムに選択して空白ピースと入れ替える
+    // 隣接ピースからランダムに選択して空白ピースと入れ替える
     this.movePiece(pieces.random(), 'instantly');
     pieces.clear();
   },
