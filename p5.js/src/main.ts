@@ -1,6 +1,8 @@
 import p5 from 'p5';
 import { Player } from './class/Player';
 import { Map } from './class/Map';
+import { flowerOpen } from './flowerOpen';
+import { makeBubble } from './class/Bubble';
 // bodyを灰色にする
 document.body.style.backgroundColor = '#ccc';
 
@@ -10,6 +12,14 @@ const keyState = {
   down: false,
   left: false,
   right: false,
+};
+
+const flower = (p: p5) => {
+  flowerOpen(p);
+};
+
+const bubbles = (p: p5) => {
+  makeBubble(p);
 };
 
 const sketch = (p: p5) => {

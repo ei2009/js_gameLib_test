@@ -7,7 +7,7 @@ class Player {
   private y: number;
   sideLen: number; // プレイヤーの１辺の長さ
   map: Map; // プレイヤーの存在するマップ
-  actionWaitTime: number = 4; // プレイヤーが一度行動してから次の行動までの時間を設定
+  actionWaitTime: number = 10; // プレイヤーが一度行動してから次の行動までの時間を設定
   actionCount: number = this.actionWaitTime; // プレイヤーの行動回数
   constructor(x: number, y: number, sideLen: number, map: Map) {
     this.x = x;
